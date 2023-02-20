@@ -3,12 +3,14 @@
 # 则使用User10的公钥加密[自己的对称加密密钥,同态解密密钥]，并将（User10标识，加密后的密钥）放置于访问控制列表中。
 
 import DataTransform
+import KeyCenter
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Cipher import AES
 import pickle
 import tenseal as ts
 from Crypto.Cipher import PKCS1_v1_5 as PKCS1_cipher
 from Crypto.PublicKey import RSA
+import random
 
 
 class user:
@@ -28,7 +30,7 @@ class user:
     isEncrypt = False
     dataserver = DataTransform.DataControl()
 
-    def __init__(self,name,price,number) -> None:
+    def __init__(self, name, price, number) -> None:
         self.CommidityName = name
         self.CommidityPrice = price
         self.CommidityNumber = number
@@ -67,7 +69,7 @@ class user:
             self.keys = pickle.dumps([cipher.encrypt(
                 self.SymmetricKey), cipher_text])
             print("加密成功")
-            AccessControlList.add(user, self)  # 添加控制列表
+            AccessControlList.add(self, user)  # 添加控制列表
             self.dataserver.upload(
                 self.EncryptCommidityName, self.CommidityPriceandNumber, user.userid, self.keys)  # 数据上链
 
@@ -98,3 +100,16 @@ class user:
         print("商品名称:", userCommidityName)
         print("商品价格:", userprice)
         print("商品数量:", usernumber)
+
+    def GetRamdomData(self, keycenter, index: int, AccessControlList):
+        print("正在进行密文验证")
+        i = random.randint(0, self.dataserver.Getcount()-1)
+        (username, userpriceandnumber, id,
+         userkeys) = self.dataserver.RandomDownload(i)
+        ownerid=AccessControlList.findowner(id)
+        print("获取到"+ownerid"授权给"+id+"的数据")
+        isright=keycenter.verify(userpriceandnumber,ownerid,index)
+        if(isright==True):
+            print("经认证，数据大于等于"+index)
+        else:
+            print("经认证，数据小于"+index)

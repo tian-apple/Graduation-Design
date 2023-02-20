@@ -37,3 +37,16 @@ class KeyManagerCenter:
             user.RSAsecretkey = RSA.import_key(key_pair.export_key())
             self.keylist.append([user.userid, user.RSApublickey, user.RSAsecretkey, user.SymmetricKey,
                                  user.HEpublickey, user.HEsecretkey])
+
+    def verify(self, priceandnumber, id, index):
+        for i in self.keylist:
+            if(i[0] == id):
+                usercontext = ts.context_from(i[5])
+                priceandnumber = ts.bfv_vector_from(
+                    usercontext, priceandnumber)
+                priceandnumber.decrypt()
+                price = priceandnumber[0]
+                number = priceandnumber[1]
+                return price*number > index
+
+        return False

@@ -42,16 +42,15 @@ class binary:
         context.has_secret_key = True
         HEpublickey = context.serialize(
             save_public_key=True, save_galois_keys=False, save_relin_keys=False, save_secret_key=False)
-        encryptdata1=ts.bfv_vector(context, self.data1).serialize()
-        encryptdata2=ts.bfv_vector(context, self.data2).serialize()
-        #同态密文反序列化后相加，不能依赖context，否则会报错
-        encryptdata1=unserialize(encryptdata1)
-        encryptdata2=unserialize(encryptdata2)
+        encryptdata1=ts.bfv_vector(context, self.data1)
+        encryptdata2=ts.bfv_vector(context, self.data2)
         #同态密文相加
-        encryptdata3=encryptdata1+encryptdata2
+        #encryptdata3的向量为两个数相加和两个数相减
+        encryptdata3=encryptdata1*encryptdata2
         #结果解密
-        decryptdata=encryptdata3.decrypt()
-        print("同态解密后的数据为：", decryptdata)
+        print(encryptdata3)
+        decryptdata3=encryptdata3.decrypt()
+        print(decryptdata3)
 
 
 

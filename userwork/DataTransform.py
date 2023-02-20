@@ -32,3 +32,11 @@ class DataControl:
     def Download(self, userid):
         (name, priceandnumber, id, keys) = self.contract.functions.getdata(userid).call()
         return (name, priceandnumber, keys)
+
+    def Getcount(self):
+        return self.contract.functions.getcount().call()
+
+    def RandomDownload(self, count):
+        (name, priceandnumber, id,
+         keys) = self.contract.functions.getrandomdata(count).call()
+        return (name, priceandnumber, id, keys)

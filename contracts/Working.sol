@@ -48,4 +48,26 @@ contract Working {
                 );
         }
     }
+
+    function getrandomdata(uint256 i)
+        public
+        view
+        returns (
+            bytes memory,
+            bytes memory,
+            string memory,
+            bytes memory
+        )
+    {
+        return (
+            commiditys[i].commidity_name,
+            commiditys[i].commidity_priceandnumber,
+            commiditys[i].controlist.userid,
+            commiditys[i].controlist.keys
+        );
+    }
+
+    function count() public view returns (uint256) {
+        return commiditys.length;
+    }
 }
