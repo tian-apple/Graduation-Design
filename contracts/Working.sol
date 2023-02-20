@@ -70,4 +70,8 @@ contract Working {
     function count() public view returns (uint256) {
         return commiditys.length;
     }
+
+    function cleanup() public {
+        delete commiditys;
+    }
 }

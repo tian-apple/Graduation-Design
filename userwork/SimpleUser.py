@@ -68,12 +68,13 @@ class user:
             cipher_text = b''.join(rsa_text)
             self.keys = pickle.dumps([cipher.encrypt(
                 self.SymmetricKey), cipher_text])
-            print("加密成功")
+            print(self.userid+"的数据加密成功")
             AccessControlList.add(self, user)  # 添加控制列表
             self.dataserver.upload(
                 self.EncryptCommidityName, self.CommidityPriceandNumber, user.userid, self.keys)  # 数据上链
 
     def DownloadData(self):
+        print(self.userid+"从链上下载数据")
         (username, userpriceandnumber, userkeys) = self.dataserver.Download(
             self.userid)  # 从链中下载授权给自己的数据，包括对方的对称加密密钥，同态私钥，加密数据
         userkeys = pickle.loads(userkeys)  # 解序列化,变成[加密对称密钥，加密同态私钥]
@@ -101,15 +102,16 @@ class user:
         print("商品价格:", userprice)
         print("商品数量:", usernumber)
 
-    def GetRamdomData(self, keycenter, index: int, AccessControlList):
+    def DownloadRamdomData(self, keycenter, index: int, AccessControlList):
         print("正在进行密文验证")
-        i = random.randint(0, self.dataserver.Getcount()-1)
+        i = random.randint(0, len(AccessControlList.list)-1)
         (username, userpriceandnumber, id,
          userkeys) = self.dataserver.RandomDownload(i)
-        ownerid=AccessControlList.findowner(id)
-        print("获取到"+ownerid"授权给"+id+"的数据")
-        isright=keycenter.verify(userpriceandnumber,ownerid,index)
-        if(isright==True):
-            print("经认证，数据大于等于"+index)
+        ownerid = AccessControlList.findowner(id)
+        print("获取到"+str(ownerid)+"授权给"+str(id)+"的数据")
+        data = keycenter.verify(userpriceandnumber, ownerid, index)
+        print("密文数据为"+str(data)+",检定值为"+str(index))
+        if data >= index:
+            print("密文验证成功")
         else:
-            print("经认证，数据小于"+index)
+            print("密文验证失败")

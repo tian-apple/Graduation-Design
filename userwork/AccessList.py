@@ -6,6 +6,8 @@
 import SimpleUser
 
 # 访问控制列表单个元素格式为[数据拥有者的用户标识，授权给用户的用户标识]
+
+
 class AccessControlList:
     list = []
 
@@ -14,8 +16,8 @@ class AccessControlList:
 
     def add(self, user1, user2):
         self.list.append([user1.userid, user2.userid])
-    
-    def findowner(self,id):
+
+    def findowner(self, id):
         for i in self.list:
             if i[1] == id:
                 return i[0]

@@ -17,24 +17,27 @@ class DataControl:
         self.filepath = 'build/contracts/Working.json'
         with open(self.filepath, encoding='utf-8') as json_file:
             self.data = json.load(json_file)
-        self.contract_address = '0x06c58dAc845A0888979F222e81d13D8Db9FA26E8'
+        self.contract_address = '0x93aeE7C9b6C66BaC5EB95aA0a961AE65f16C1f3B'
         self.contract = self.w3.eth.contract(
             address=self.contract_address, abi=self.data['abi'])
+        self.contract.functions.cleanup().transact(
+            {'from': self.w3.eth.accounts[1],
+                'gas': 10000000000}
+        )
 
     def upload(self, name, priceandnmuber, id, keys):
-        print("标记")
         self.contract.functions.set(name, priceandnmuber, id, keys).transact(
             {'from': self.w3.eth.accounts[1],
              'gas': 10000000000}
         )
-        print("上传成功")
+        print("授权给"+id+"的数据上传成功")
 
     def Download(self, userid):
         (name, priceandnumber, id, keys) = self.contract.functions.getdata(userid).call()
         return (name, priceandnumber, keys)
 
     def Getcount(self):
-        return self.contract.functions.getcount().call()
+        return self.contract.functions.count().call()
 
     def RandomDownload(self, count):
         (name, priceandnumber, id,

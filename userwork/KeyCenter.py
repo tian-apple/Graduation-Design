@@ -44,9 +44,8 @@ class KeyManagerCenter:
                 usercontext = ts.context_from(i[5])
                 priceandnumber = ts.bfv_vector_from(
                     usercontext, priceandnumber)
-                priceandnumber.decrypt()
+                priceandnumber = priceandnumber.decrypt()
                 price = priceandnumber[0]
                 number = priceandnumber[1]
-                return price*number > index
-
+                return price*number
         return False
