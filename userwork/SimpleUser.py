@@ -25,6 +25,7 @@ class user:
     EncryptCommidityName = ""  # 对称加密后的商品名称,bytes型
     CommidityPrice = 0  # 商品价格,数值型
     CommidityNumber = 0  # 商品数量,数值型
+    CommidityBalance = 0  # 余额
     CommidityPriceandNumber = b''  # 同态加密的价格和数量序列
     keys = b''  # 存放自己用对方公钥加密的对称加密密钥和同态解密密钥
     isEncrypt = False
@@ -55,6 +56,7 @@ class user:
             self.isEncrypt = True
 
     def GetControl(self, user, AccessControlList):  # 默认允许访问自己的加密数据，添加控制列表,并将数据上链
+        print("用户"+self.userid+"授权用户"+user.userid+"访问自己的数据")
         if(self.SymmetricKey == ""):
             print("请先联系权威机构获取密钥")
             return

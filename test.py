@@ -8,8 +8,8 @@ from web3 import Web3, HTTPProvider
 
 class binary:
     data = "my work"
-    data1 = [2, 5]
-    data2 = [3, 6]
+    data1 = [2]
+    data2 = [3]
     password = b'1234568987987639'
 
     def __init__(self, data):
@@ -41,16 +41,11 @@ class binary:
         context.has_public_key = True
         context.has_secret_key = True
         HEpublickey = context.serialize(
-            save_public_key=True, save_galois_keys=False, save_relin_keys=False, save_secret_key=False)
-        encryptdata1=ts.bfv_vector(context, self.data1)
-        encryptdata2=ts.bfv_vector(context, self.data2)
-        #同态密文相加
-        #encryptdata3的向量为两个数相加和两个数相减
-        encryptdata3=encryptdata1*encryptdata2
-        #结果解密
-        print(encryptdata3)
-        decryptdata3=encryptdata3.decrypt()
-        print(decryptdata3)
+            save_public_key=True)
+        HEsecretkey = context.serialize(
+            save_secret_key=True)
+        print("HEpublickey", HEpublickey[0:64])
+        print("HEsecretkey", HEsecretkey[0:64])
 
 
 

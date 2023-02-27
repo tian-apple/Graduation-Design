@@ -23,16 +23,15 @@ key.register(user3)
 key.register(user4)
 key.register(user5)
 key.register(user10)
-print("*********************展示部分角色的信息**********************")
-print("user3:")
-print(user3.userid)
-# print(user3.RSAsecretkey)
-print(user3.SymmetricKey)
-# print(user3.HEpublickey)
-# print(user3.HEsecretkey)
-print("user10:")
-print(user10.userid)
-print(user10.SymmetricKey)
+print("*********************展示角色信息**********************")
+print("userid", user3.userid)
+print("RSApublickey", user3.RSApublickey)
+print("RSAsecretkey", user3.RSAsecretkey)
+print("Symmetrickey", user3.SymmetricKey)
+print("HEpublickey", user3.context.public_key())
+print("HEsecretkey", user3.context.secret_key())
+# print(user10.userid)
+# print(user10.SymmetricKey)
 # print(user10.HEpublickey)
 # print(user10.HEsecretkey)
 
@@ -45,11 +44,14 @@ user3.encrypt()
 user4.encrypt()
 user5.encrypt()
 user10.encrypt()
+print("字符密文", user3.EncryptCommidityName)
+print("数值密文", user3.CommidityPriceandNumber[0:32])
 
 # 3.访问控制
 # User3-User10构造数据上传结构体，分别包含加密字符字段，加密数值字段以及一个访问控制列表
 # e.g. User3如果允许User10访问自己的加密数据，则使用User10的公钥加密[自己的对称加密密钥,同态解密密钥]，
 # 并将（User10标识，加密后的密钥）放置于访问控制列表中
+print("**********************访问控制**********************")
 user3.GetControl(user10, controllist)
 user1.GetControl(user2, controllist)
 user5.GetControl(user4, controllist)
@@ -57,8 +59,10 @@ user10.GetControl(user1, controllist)
 
 # 4.数据获取
 # User10检查新上链数据的访问控制列表，发现自己的标识后，下载对应数据，并使用私钥解密访问控制列表中的加密密钥，进而解密数据。
+print("**********************数据获取**********************")
 user10.DownloadData()
 user4.DownloadData()
 
 # 5.数据验证
+print("**********************数据验证**********************")
 user1.DownloadRamdomData(key, 3000, controllist)
