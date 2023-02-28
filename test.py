@@ -4,12 +4,13 @@ from Crypto.Cipher import AES
 import pickle
 import tenseal as ts
 from web3 import Web3, HTTPProvider
+import numpy as np
 
 
 class binary:
     data = "my work"
-    data1 = [2]
-    data2 = [3]
+    data1 = np.array([1])
+    data2 = np.array([3])
     password = b'1234568987987639'
 
     def __init__(self, data):
@@ -44,9 +45,12 @@ class binary:
             save_public_key=True)
         HEsecretkey = context.serialize(
             save_secret_key=True)
-        print("HEpublickey", HEpublickey[0:64])
-        print("HEsecretkey", HEsecretkey[0:64])
-
+        encryptdata1=ts.bfv_vector(context, self.data1).serialize()
+        encryptdata2=ts.bfv_vector(context, self.data2).serialize()
+        encryptdata3=encryptdata1+encryptdata2
+        decryptdata=ts.bfv_vector_from(context, encryptdata3).decrypt()
+        print(decryptdata)
+        
 
 
 binarydata = binary("my work")
