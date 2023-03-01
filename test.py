@@ -9,8 +9,8 @@ import numpy as np
 
 class binary:
     data = "my work"
-    data1 = np.array([1])
-    data2 = np.array([3])
+    data1 = np.array([100000])
+    data2 = np.array([30000])
     password = b'1234568987987639'
 
     def __init__(self, data):
@@ -47,9 +47,7 @@ class binary:
             save_secret_key=True)
         encryptdata1=ts.bfv_vector(context, self.data1).serialize()
         encryptdata2=ts.bfv_vector(context, self.data2).serialize()
-        encryptdata3=encryptdata1+encryptdata2
-        decryptdata=ts.bfv_vector_from(context, encryptdata3).decrypt()
-        print(decryptdata)
+        print(len(encryptdata1))
         
 
 

@@ -17,7 +17,7 @@ class DataControl:
         self.filepath = 'build/contracts/Working.json'
         with open(self.filepath, encoding='utf-8') as json_file:
             self.data = json.load(json_file)
-        self.contract_address = '0x97360e0505C73626f22198922079094038036d95'
+        self.contract_address = '0x0bb7D1e7c3C963aA0DAAD54Ae48F4A7E99791695'
         self.contract = self.w3.eth.contract(
             address=self.contract_address, abi=self.data['abi'])
         self.contract.functions.cleanup().transact(
@@ -25,7 +25,7 @@ class DataControl:
                 'gas': 10000000000}
         )
 
-    def upload(self, name, priceandnmuber, id, keys):
+    def upload(self, name, priceandnmuber, id, keys):  # 数据上链
         self.contract.functions.set(name, priceandnmuber, id, keys).transact(
             {'from': self.w3.eth.accounts[1],
              'gas': 10000000000}
@@ -42,10 +42,16 @@ class DataControl:
         (name, priceandnumber, id, keys) = self.contract.functions.getdata(userid).call()
         return (name, priceandnumber, keys)
 
-    def Getcount(self):
+    def Getcount(self):  # 获取链上结构体数组长度
         return self.contract.functions.count().call()
 
-    def RandomDownload(self, count):
+    def RandomDownload(self, count):  # 随机获取链上数据
         (name, priceandnumber, id,
          keys) = self.contract.functions.getrandomdata(count).call()
         return (name, priceandnumber, id, keys)
+
+    def getall(self):  # 获取链上所有数据
+        return self.contract.functions.getall().transact(
+            {'from': self.w3.eth.accounts[1],
+                'gas': 10000000000}
+        )

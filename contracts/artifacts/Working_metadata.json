@@ -7,15 +7,177 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "working",
+				"name": "cleanup",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "commiditys",
 				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "commidity_name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "commidity_priceandnumber",
+						"type": "bytes"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "userid",
+								"type": "string"
+							},
+							{
+								"internalType": "bytes",
+								"name": "keys",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Working.Controlist",
+						"name": "controlist",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "controlists",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "userid",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "keys",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "count",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					}
+				],
+				"name": "getdata",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					},
 					{
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
 					}
 				],
-				"stateMutability": "pure",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "i",
+						"type": "uint256"
+					}
+				],
+				"name": "getrandomdata",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "priceandnumber",
+						"type": "bytes"
+					},
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "kys",
+						"type": "bytes"
+					}
+				],
+				"name": "set",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -40,17 +202,17 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/Working.sol": {
-			"keccak256": "0xeb091fa54dc95a12dfc9365bbf42ac1b5008a90628eb2a22541ce9ab39dfa509",
+			"keccak256": "0x4e7e83dbbd6735bb3007cb9f6281e158f6b2d5808d4abb4ea01fd721fa6993cf",
 			"urls": [
-				"bzz-raw://3e55b1984f254d05b9dfba8fc5f64aae5a1f71a8b6c4e996b9affe9d7ee0443b",
-				"dweb:/ipfs/QmU3jx48tVkhyfMjXx42msz2R6SKQvLyuNm58yygesLayo"
+				"bzz-raw://ea1553239b614cba069927df22a26daaee02917a4985bde0d7f79d23fc0e65b4",
+				"dweb:/ipfs/QmbNbPHhEufTyCDZDduWJh4H2pRFrMjj2FM46sicxCrqT1"
 			]
 		}
 	},
