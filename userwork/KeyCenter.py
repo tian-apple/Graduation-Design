@@ -38,7 +38,7 @@ class KeyManagerCenter:
             self.keylist.append([user.userid, user.RSApublickey, user.RSAsecretkey, user.SymmetricKey,
                                  user.HEpublickey, user.HEsecretkey])
 
-    def verify(self, priceandnumber, id, index):
+    def verify(self, priceandnumber, id, index,blance):
         for i in self.keylist:
             if(i[0] == id):
                 usercontext = ts.context_from(i[5])
@@ -47,5 +47,7 @@ class KeyManagerCenter:
                 priceandnumber = priceandnumber.decrypt()
                 price = priceandnumber[0]
                 number = priceandnumber[1]
-                return price*number
+                print("执行运算结果:",price,"*",number,"=",price*number)
+                print("执行运算结果:",price*number,"-",blance,"=",price*number-blance)
+                return price*number-blance
         return False

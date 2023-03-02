@@ -2,6 +2,7 @@ import SimpleUser
 import KeyCenter
 import AccessList
 import tenseal as ts
+import random
 
 # 变量初始化
 key = KeyCenter.KeyManagerCenter()
@@ -65,4 +66,4 @@ user4.DownloadData()
 
 # 5.数据验证
 print("**********************数据验证**********************")
-user1.DownloadRamdomData(key, 3000, controllist)
+user1.DownloadRamdomData(key, random.randint(10,2000), controllist)

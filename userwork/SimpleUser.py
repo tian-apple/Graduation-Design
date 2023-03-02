@@ -11,6 +11,7 @@ import tenseal as ts
 from Crypto.Cipher import PKCS1_v1_5 as PKCS1_cipher
 from Crypto.PublicKey import RSA
 import random
+import time
 
 
 class user:
@@ -35,6 +36,7 @@ class user:
         self.CommidityName = name
         self.CommidityPrice = price
         self.CommidityNumber = number
+        self.CommidityBalance = random.randint(100, 1000)
 
     def encrypt(self):  # 加密自己的交易数据
         if(self.SymmetricKey == ""):
@@ -105,15 +107,20 @@ class user:
         print("商品数量:", usernumber)
 
     def DownloadRamdomData(self, keycenter, index: int, AccessControlList):
-        print("正在进行密文验证")
+        print(self.userid, "发起密文验证请求,调用地址为",
+              self.dataserver.contract_address, "合约")
         i = random.randint(0, len(AccessControlList.list)-1)
+        start = time.time()
         (username, userpriceandnumber, id,
          userkeys) = self.dataserver.RandomDownload(i)
         ownerid = AccessControlList.findowner(id)
-        print("获取到"+str(ownerid)+"授权给"+str(id)+"的数据")
-        data = keycenter.verify(userpriceandnumber, ownerid, index)
-        print("密文数据为"+str(data)+",检定值为"+str(index))
+        print("获取到区块链中第"+str(i)+"条数据，为"+str(ownerid)+"授权给"+str(id)+"的数据")
+        data = keycenter.verify(
+            userpriceandnumber, ownerid, index, self.CommidityBalance)
+        print("最终结果为"+str(data)+",检定值为"+str(index))
         if data >= index:
             print("密文验证成功")
         else:
             print("密文验证失败")
+        end = time.time()
+        print("密文验证耗时:", (end-start)*1000, "ms")

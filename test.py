@@ -45,9 +45,11 @@ class binary:
             save_public_key=True)
         HEsecretkey = context.serialize(
             save_secret_key=True)
-        encryptdata1=ts.bfv_vector(context, self.data1).serialize()
-        encryptdata2=ts.bfv_vector(context, self.data2).serialize()
-        print(len(encryptdata1))
+        encryptdata1=ts.bfv_vector(context, self.data1)
+        encryptdata2=ts.bfv_vector(context, self.data2)
+        encryptdata3=encryptdata1+encryptdata2
+        print("加密后的数据为：", encryptdata3)
+        print("解密后的数据为：", encryptdata3.decrypt())
         
 
 

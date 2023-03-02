@@ -17,7 +17,7 @@ class DataControl:
         self.filepath = 'build/contracts/Working.json'
         with open(self.filepath, encoding='utf-8') as json_file:
             self.data = json.load(json_file)
-        self.contract_address = '0x0bb7D1e7c3C963aA0DAAD54Ae48F4A7E99791695'
+        self.contract_address = '0xC6378A2aC69CE394B4eb2fFbA2023e8D16e88589'
         self.contract = self.w3.eth.contract(
             address=self.contract_address, abi=self.data['abi'])
         self.contract.functions.cleanup().transact(

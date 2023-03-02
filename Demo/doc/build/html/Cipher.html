@@ -40,43 +40,145 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.AESDecrypt">
 <span class="sig-name descname"><span class="pre">AESDecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.AESDecrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用AES对称加密算法解密</p>
+<dd><p>函数功能
+使用AES对称加密算法解密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – AES对称加密密钥</p></li>
+<li><p><strong>data</strong> – 待解密数据</p></li>
+<li><p><strong>Returns</strong> – unpad(key.decrypt(data), AES.block_size): 解密后的数据</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.AESEncrypt">
 <span class="sig-name descname"><span class="pre">AESEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.AESEncrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用AES对称加密算法加密</p>
+<dd><p>函数功能
+使用AES对称加密算法加密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – AES对称加密密钥</p></li>
+<li><p><strong>data</strong> – 待加密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>加密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>encrypt(pad(data, AES.block_size))</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.CKKSDecrypt">
 <span class="sig-name descname"><span class="pre">CKKSDecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.CKKSDecrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用CKKS同态加密算法解密</p>
+<dd><p>函数功能
+使用CKKS同态加密算法解密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – 同态加密上下文</p></li>
+<li><p><strong>key</strong> – 同态加密密钥</p></li>
+<li><p><strong>data</strong> – 待解密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>context.decrypt(key, data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.CKKSEncrypt">
 <span class="sig-name descname"><span class="pre">CKKSEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.CKKSEncrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用CKKS同态加密算法加密</p>
+<dd><p>函数功能
+使用CKKS同态加密算法加密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – 同态加密上下文</p></li>
+<li><p><strong>key</strong> – 同态加密密钥</p></li>
+<li><p><strong>data</strong> – 待加密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>加密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>context.encrypt(key, data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.DESDecrypt">
 <span class="sig-name descname"><span class="pre">DESDecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.DESDecrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用DES对称加密算法解密</p>
+<dd><p>函数功能
+使用DES对称加密算法解密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – DES对称加密密钥</p></li>
+<li><p><strong>data</strong> – 待解密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>unpad(key.decrypt(data), DES.block_size)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.DESEncrypt">
 <span class="sig-name descname"><span class="pre">DESEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.DESEncrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用DES对称加密算法加密</p>
+<dd><p>函数功能
+使用DES对称加密算法加密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – DES对称加密密钥</p></li>
+<li><p><strong>data</strong> – 待加密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>加密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>key.encrypt(pad(data, DES.block_size))</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.ECSign">
 <span class="sig-name descname"><span class="pre">ECSign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.ECSign" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用椭圆曲线算法签名</p>
+<dd><p>函数功能
+使用椭圆曲线算法签名</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – 椭圆曲线算法密钥对</p></li>
+<li><p><strong>data</strong> – 待签名数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>签名后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>key.sign(data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -88,31 +190,109 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateContext">
 <span class="sig-name descname"><span class="pre">GenerateContext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateContext" title="Permalink to this definition">¶</a></dt>
-<dd><p>生成同态加密上下文</p>
+<dd><p>函数功能
+生成同态加密上下文</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>同态加密上下文</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>context</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Cipher.CipherBox.GenerateDESKey">
+<span class="sig-name descname"><span class="pre">GenerateDESKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateDESKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>函数功能
+生成DES随机密钥</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DES随机密钥</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes(random.randint(0, 255) for i in range(8))</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateECKey">
 <span class="sig-name descname"><span class="pre">GenerateECKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateECKey" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用椭圆曲线算法生成密钥对</p>
+<dd><p>函数功能
+使用椭圆曲线算法生成密钥对</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>椭圆曲线算法密钥对</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>key</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateHEKey">
 <span class="sig-name descname"><span class="pre">GenerateHEKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateHEKey" title="Permalink to this definition">¶</a></dt>
-<dd><p>生成同态加密密钥</p>
+<dd><p>函数功能
+生成同态加密密钥</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>context</strong> – 同态加密上下文</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>同态加密密钥</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>context.keygen()</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateRSAKey">
 <span class="sig-name descname"><span class="pre">GenerateRSAKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateRSAKey" title="Permalink to this definition">¶</a></dt>
-<dd><p>生成RSA非对称加密密钥对</p>
+<dd><p>函数功能
+生成RSA非对称加密密钥对</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>RSA非对称加密密钥对</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>RSA.generate(2048)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateRandomKey">
 <span class="sig-name descname"><span class="pre">GenerateRandomKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateRandomKey" title="Permalink to this definition">¶</a></dt>
-<dd><p>生成AES随机密钥</p>
+<dd><p>函数功能
+生成AES随机密钥</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AES随机密钥</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes(random.randint(0, 255) for i in range(16))</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -124,31 +304,103 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.GenerateSymmetricKey">
 <span class="sig-name descname"><span class="pre">GenerateSymmetricKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.GenerateSymmetricKey" title="Permalink to this definition">¶</a></dt>
-<dd><p>生成对称加密密钥</p>
+<dd><p>函数功能
+生成AES对称加密密钥</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>无</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AES对称加密密钥</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>AES.new(self.GenerateRandomKey(), AES.MODE_ECB)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.HEDecrypt">
-<span class="sig-name descname"><span class="pre">HEDecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.HEDecrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用同态加密算法解密</p>
+<span class="sig-name descname"><span class="pre">HEDecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.HEDecrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>函数功能
+使用同态加密算法解密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – 同态加密上下文</p></li>
+<li><p><strong>data</strong> – 待解密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>decrypt(data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.HEEncrypt">
-<span class="sig-name descname"><span class="pre">HEEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.HEEncrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用同态加密算法加密</p>
+<span class="sig-name descname"><span class="pre">HEEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.HEEncrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>函数功能
+使用同态加密算法加密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> – 同态加密上下文</p></li>
+<li><p><strong>data</strong> – 待加密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>加密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>encrypt( data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.RSADecrypt">
 <span class="sig-name descname"><span class="pre">RSADecrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.RSADecrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用RSA非对称加密算法解密</p>
+<dd><p>函数功能
+使用RSA非对称加密算法解密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – RSA非对称加密密钥对</p></li>
+<li><p><strong>data</strong> – 待解密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>key.decrypt(data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Cipher.CipherBox.RSAEncrypt">
 <span class="sig-name descname"><span class="pre">RSAEncrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Cipher.CipherBox.RSAEncrypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>使用RSA非对称加密算法加密</p>
+<dd><p>函数功能
+使用RSA非对称加密算法加密</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – RSA非对称加密密钥对</p></li>
+<li><p><strong>data</strong> – 待加密数据</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>加密后的数据</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>key.encrypt(data)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
